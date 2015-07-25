@@ -1361,14 +1361,64 @@ class phpQueryObject
 		}
 	}
 	/**
-	 * Enter description here...
+	 * @param        $param
+	 * @param string $value
 	 *
-	 * @return phpQuery|QueryTemplatesSource|QueryTemplatesParse|QueryTemplatesSourceQuery
-	 * @todo
+	 * @return $this
 	 */
-	public function css() {
-		// TODO
+	public function css ($param, $value = '')
+	{
+		$style = $this->parseCSS($this->attr('style'));
+		if (empty($value))
+		{
+			return $style[$param];
+		}
+		$style[$param] = $value;
+		$this->attr('style', $this->saveCss($style));
+
 		return $this;
+	}
+
+	/**
+	 * @param $style
+	 *
+	 * @return array|string
+	 */
+	function parseCSS ($style)
+	{
+		$style = trim($style);
+		if (substr($style, -1) != ';')
+		{
+			$style .= ';';
+		}
+		preg_match_all("|(.*):(.*);|U", $style, $out, PREG_PATTERN_ORDER);
+
+		$style = [];
+		for ($i = 0; $i < count($out[1]); $i++)
+		{
+			$attr  = trim($out[1][$i]);
+			$value = trim($out[2][$i]);
+
+			$style[$attr] = $value;
+		}
+
+		return $style;
+	}
+
+	/**
+	 * @param $parsed
+	 *
+	 * @return string
+	 */
+	function saveCss ($parsed)
+	{
+		$style = '';
+		foreach ($parsed as $key => $value)
+		{
+			$style .= $key . ': ' . $value . '; ';
+		}
+
+		return $style;
 	}
 	/**
 	 * @todo
