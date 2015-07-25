@@ -1,7 +1,7 @@
 {
-    "name":"PheRum/phpQuery",
+    "name":"pherum/phpquery",
     "type":"library",
-    "description":"phpQuery",
+    "description":"phpquery",
     "version":"0.9.6",
     "keywords":[],
     "homepage":"http://code.google.com/p/phpquery/",
