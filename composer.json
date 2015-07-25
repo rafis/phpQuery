@@ -1,24 +1,36 @@
 {
-    "name": "electrolinux/phpquery"
-    ,"type": "library"
-    ,"description": "phpQuery is a server-side, chainable, CSS3 selector driven Document Object Model (DOM) API based on jQuery JavaScript Library"
-    ,"version": "0.9.6"
-    ,"keywords": []
-    ,"homepage": "http://code.google.com/p/phpquery/"
-    ,"license": "MIT"
-    ,"authors": [
+    "name":"PheRum/phpQuery",
+    "type":"library",
+    "description":"PHP5.3+ namespaced version of phpQuery with enhanced CSS support",
+    "version":"0.9.6",
+    "keywords":[
+        
+    ],
+    "homepage":"http://code.google.com/p/phpquery/",
+    "license":"MIT",
+    "authors":[
         {
-            "name": "Tobiasz Cudnik"
-            ,"email": "tobiasz.cudnik@gmail.com"
-            ,"homepage": "https://github.com/TobiaszCudnik"
-            ,"role": "Developer"
-        }
-        ,{
-            "name": "didier Belot"
-            ,"role": "Packager"
+            "name":"Tobiasz Cudnik",
+            "email":"tobiasz.cudnik@gmail.com",
+            "homepage":"https://github.com/TobiaszCudnik",
+            "role":"Developer"
+        },
+        {
+            "name":"didier Belot",
+            "role":"Packager"
+        },
+        {
+            "name":"Greg Payne",
+            "role":"Packager"
         }
     ],
-    "autoload": {
-        "classmap": ["phpQuery/"]
+    "require":{
+        "php":">=5.4",
+        "sabberworm/php-css-parser":"5.1.*"
+    },
+    "autoload":{
+        "psr-4":{
+            "PhpQuery\\": "src/"
+        }
     }
 }
