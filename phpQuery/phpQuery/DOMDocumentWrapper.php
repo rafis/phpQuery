@@ -49,7 +49,7 @@ class DOMDocumentWrapper {
 			$this->load($markup, $contentType, $newDocumentID);
 		$this->id = $newDocumentID
 			? $newDocumentID
-			: md5(microtime());
+			: md5(uniqid('', true));
 	}
 	public function load($markup, $contentType = null, $newDocumentID = null) {
 //		phpQuery::$documents[$id] = $this;

@@ -487,7 +487,7 @@ abstract class phpQuery
 			throw new Exception("Old PHP4 DOM XML extension detected. phpQuery won't work until this extension is enabled.");
 //		$id = $documentID
 //			? $documentID
-//			: md5(microtime());
+//			: md5(uniqid('', true));
 		$document = null;
 		if ($html instanceof DOMDOCUMENT) {
 			if (self::getDocumentID($html)) {
@@ -731,7 +731,7 @@ abstract class phpQuery
 			$options['dataType'] = 'json';
 		}
 		if (isset($options['dataType']) && $options['dataType'] == 'json') {
-			$jsonpCallback = 'json_'.md5(microtime());
+			$jsonpCallback = 'json_'.md5(uniqid('', true));
 			$jsonpData = $jsonpUrl = false;
 			if ($options['data']) {
 				foreach($options['data'] as $n => $v) {
