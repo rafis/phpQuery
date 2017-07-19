@@ -605,7 +605,7 @@ class phpQueryObject
 				// strip leading dot from class name
 				substr($class, 1),
 				// get classes for element as array
-				explode(' ', $node->getAttribute('class') )
+				preg_split('/\s/', $node->getAttribute('class') )
 			);
 		}
 	}
